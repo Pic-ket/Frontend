@@ -1,5 +1,5 @@
 import data from "../abi/data.js";
-import { userAccount } from "../src/index.js";
+import { account } from "../src/index.js";
 //내용 전환
 $(".switch.nft").on("click", function () {
   $(".switch.detail").addClass("gray");
@@ -15,7 +15,7 @@ $(".switch.detail").on("click", function () {
 });
 $(".switch.nft").trigger("click");
 //민트 위한 변수 선언
-var userAddress = userAccount;
+let userAddress = account.userAccount;
 
 //민트를 위한 함수 선언
 function getMetaMaskAddress() {
