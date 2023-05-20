@@ -35,6 +35,11 @@ function getMetaMaskAddress() {
   }
 }
 
+// 예시에서 함수 호출
+getMetaMaskAddress().then(function (address) {
+  console.log("메타마스크 주소:", address);
+});
+
 var userAddress = "";
 var contractAddress = "";
 
@@ -44,8 +49,8 @@ $("#ticket_button").on("click", function (e) {
 
   getMetaMaskAddress().then(function (address) {
     userAddress = address;
+    console.log("메타마스크 주소:", address);
   });
-  console.log("계좌번호 테스트 로그 : " + userAddress);
   //
   const mintTicket = async () => {
     try {
