@@ -1,28 +1,35 @@
 //클릭이벤트 붙이기
 $("#btn_mypage").on("click", function (e) {
   //그전에, 메타 마슼?
-
-  location.href = "./page5/index.html";
+  if (checkMetaMaskAccount()) {
+    location.href = "./page5/index.html";
+  } else {
+    location.reload();
+  }
 });
 $(".v66_428").on("click", function (e) {
   location.reload();
 });
 
+const account_text = "";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function openMetaMaskPopup() {
+  if (typeof window.ethereum !== "undefined") {
+    window.ethereum
+      .enable()
+      .then(function (accounts) {
+        account_text = accounts[0];
+        return 1;
+      })
+      .catch(function (error) {
+        console.error(error);
+        return 0;
+      });
+  } else {
+    alert("메타마스크를 설치해주세요.");
+    return 0;
+  }
+}
 
 //카드 스크롤 시작
 const list = document.querySelector(".list");
