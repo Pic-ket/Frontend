@@ -20,23 +20,19 @@ var userAddress = "";
 //민트를 위한 함수 선언
 function getMetaMaskAddress() {
   if (typeof window.ethereum !== "undefined") {
-    // 사용자에게 DApp 접근 권한 요청
-    return window.ethereum
+    window.ethereum
       .enable()
-      .then(function () {
-        // 메타마스크 계정 주소 가져오기
-        return window.ethereum
-          .request({ method: "eth_requestAccounts" })
-          .then(function (accounts) {
-            // 첫 번째 계정 주소 반환
-            return accounts[0];
-          });
+      .then(function (accounts) {
+        alert(accounts[0]);
+        return accounts[0];
       })
       .catch(function (error) {
         console.error(error);
+        location.reload();
       });
   } else {
-    return Promise.reject("메타마스크를 설치해주세요.");
+    alert("메타마스크를 설치해주세요.");
+    location.reload();
   }
 }
 getMetaMaskAddress().then(function (address) {

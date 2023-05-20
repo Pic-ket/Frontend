@@ -17,27 +17,21 @@ let tokenUrl = "";
 const contractAddress = "0xb6ACb4Bc6e19A19B6E44A4fb5Ce74D2F1a3FE2E6";
 const contract = new web3.eth.Contract(data, contractAddress);
 
-function getMetaMaskAddress() {
-  if (typeof window.ethereum !== "undefined") {
-    // 사용자에게 DApp 접근 권한 요청
-    return window.ethereum
-      .enable()
-      .then(function () {
-        // 메타마스크 계정 주소 가져오기
-        return window.ethereum
-          .request({ method: "eth_requestAccounts" })
-          .then(function (accounts) {
-            // 첫 번째 계정 주소 반환
-            return accounts[0];
-          });
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  } else {
-    return Promise.reject("메타마스크를 설치해주세요.");
-  }
+if (typeof window.ethereum !== "undefined") {
+  window.ethereum
+    .enable()
+    .then(function (accounts) {
+      alert(accounts[0]);
+      userAddress = accounts[0];
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+} else {
+  alert("메타마스크를 설치해주세요.");
+  location.reload();
 }
+
 window.addEventListener("load", function () {
   if (typeof web3 !== "undefined") {
     console.log("Web3 Detected! " + web3.currentProvider.constructor.name);
@@ -68,7 +62,7 @@ function getBalance() {
 function changeImg() {
   $("#cont_img").attr("src", tokenUrl);
 }
-
+changeImg();
 const callGetTokenId = async () => {
   try {
     tokenId = await contract.methods.getTokenId(userAddress).call();
@@ -93,15 +87,11 @@ const callTokenUri = async () => {
   }
 };
 
+callGetTokenId();
+callTokenUri();
+
 $("#account_address").text(userAddress);
 $("#balance_int").text(userBalance);
-
-getMetaMaskAddress().then(function (address) {
-  userAddress = address;
-  getBalance();
-  callGetTokenId();
-  callTokenUri();
-});
 
 //카드 스크롤 시작
 const list = document.querySelector(".list");
