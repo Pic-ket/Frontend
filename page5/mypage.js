@@ -48,17 +48,17 @@ function getBalance() {
     web3.eth.getBalance(userAddress, function (error, wei) {
       if (!error) {
         var balance = web3.fromWei(wei, "ether");
-        document.getElementById("output").innerHTML = balance + " AVAX";
+        userBalance = balance + " AVAX";
       }
     });
   } catch (err) {
-    document.getElementById("output").innerHTML = err;
+    console.log(err);
   }
 }
 
 getMetaMaskAddress().then(function (address) {
   userAddress = address;
-  userBalance = getBalance();
+  getBalance();
 });
 
 $("#account_address").text(userAddress);
