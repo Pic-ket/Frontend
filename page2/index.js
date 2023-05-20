@@ -1,11 +1,19 @@
 const w = $(window).width();
 
+$(".switch.nft").on("click", function (e) {
+  $(".switch.detail").addClass("gray");
+  $(".switch.nft").removeClass("gray");
+});
+$(".switch.detail").on("click", function (e) {
+  $(".switch.nft").addClass("gray");
+  $(".switch.detail").removeClass("gray");
+});
 // 이벤트
 /*1. 피켓 -> 리로드
 2. 마이페이지 -> 연결
 3. 다음으로 만들기
  */
-
+/*
 //카드 스크롤 시작
 const list = document.querySelector(".list");
 const listScrollWidth = list.scrollWidth;
@@ -82,3 +90,4 @@ const bindEvents = () => {
 bindEvents();
 
 //카드 스크롤 끝
+*/

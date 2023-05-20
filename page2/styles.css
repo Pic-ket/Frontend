@@ -3,13 +3,28 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.ticket_wrap {
+  height: 500px;
+  font-weight: bold;
+  font-size: 35px;
+  margin: 60 60 30 60;
+}
+p {
+  color: white;
+  margin: 10px;
+}
 body {
   width: 100%;
-  padding: 4rem 0;
   font-size: 14px;
 }
 #body::-webkit-scrollbar {
   display: none;
+}
+#btn_mypage {
+  margin-top: 38px;
+  float: right;
+  margin-right: 100px;
 }
 .footer {
   width: 100%;
@@ -74,7 +89,7 @@ body {
 }
 .backgound {
   width: 100%;
-  height: 1200px;
+  height: 2880px;
   background: rgba(26, 34, 50, 1);
   opacity: 1;
   position: absolute;
@@ -88,7 +103,112 @@ body {
   height: 90px;
   background: rgb(8, 7, 18);
 }
+#cont_wrap {
+  height: 820px;
+}
+#switch {
+  margin-top: 20px;
+}
 
+.switch {
+  font-weight: bold;
+  color: rgba(202.93750405311584, 150.8750081062317, 255, 1);
+  margin-left: 60px;
+  font-size: 35px;
+}
+.gray {
+  color: gray;
+}
+#cont_img {
+  display: flex;
+  flex: 1;
+  overflow: auto;
+  flex-direction: column;
+  border-radius: 15px;
+}
+#out_img {
+  margin: 80 40 40 40;
+  position: absolute;
+  width: 563px;
+  height: 396px;
+  flex: 1;
+  display: flex;
+  background: #005d96;
+  box-shadow: 0px 0px 20px 10px #875bbc;
+  border-radius: 15px;
+}
+#ticket_info {
+  height: 516px;
+  margin-left: 680px;
+}
+#cont_info {
+  height: 207px;
+  margin-left: 50px;
+}
+.info {
+  color: #bd98eb;
+  font-weight: bold;
+  font-size: 35px;
+}
+.sub_info {
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+.ticket {
+  font-weight: bold;
+  background-image: linear-gradient(
+    0deg,
+    rgba(202.93750405311584, 150.8750081062317, 255, 1) 0%,
+    rgba(204.0849968791008, 208.24999898672104, 0, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  -ms-background-clip: text;
+  -ms-text-fill-color: transparent;
+  font-size: 40px;
+  padding-top: 98px;
+}
+#ticket_name {
+  color: white;
+  font-weight: bold;
+  font-size: 35px;
+  margin: 10px;
+}
+#ticket_price {
+  margin-top: 130px;
+}
+#price_name {
+  margin-right: 200px;
+}
+.price {
+  color: yellow;
+  font-size: 35px;
+  font-weight: bold;
+  padding-left: 25px;
+}
+#ticket_button {
+  margin-top: 20px;
+  width: 528px;
+  height: 63px;
+  border-radius: 10px;
+  font-size: 30px;
+  color: white;
+  background-image: linear-gradient(
+    0deg,
+    rgba(202.93750405311584, 150.8750081062317, 255, 1) 0%,
+    rgba(204.0849968791008, 208.24999898672104, 0, 1) 100%
+  );
+}
+
+#seat {
+  color: gray;
+  font-weight: bold;
+  font-size: 35px;
+  margin: 60 60 30 60;
+}
 .e17_1414 {
   background-color: rgba(
     26.000000350177288,
@@ -229,23 +349,7 @@ body {
   font-size: 20px;
   letter-spacing: 0;
 }
-.e17_3099 {
-  box-shadow: 3px 1px 45px
-    rgba(
-      149.9895340204239,
-      136.35416328907013,
-      233.7500050663948,
-      0.5400000214576721
-    );
-  width: 551px;
-  height: 482px;
-  position: absolute;
-  left: 135px;
-  top: 240px;
-  background-image: url(images/rectangle_21.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+
 .e17_3100 {
   width: 325px;
   height: 61px;
@@ -267,28 +371,7 @@ body {
   left: 0.000003814697265625px;
   top: 0px;
 }
-.ei17_3100_35_26 {
-  background-image: linear-gradient(
-    0deg,
-    rgba(202.93750405311584, 150.8750081062317, 255, 1) 0%,
-    rgba(204.0849968791008, 208.24999898672104, 0, 1) 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-background-clip: text;
-  -moz-text-fill-color: transparent;
-  -ms-background-clip: text;
-  -ms-text-fill-color: transparent;
-  width: 305px;
-  height: 41px;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  font-family: Noto Sans;
-  text-align: center;
-  font-size: 30px;
-  letter-spacing: 0;
-}
+
 .e17_3112 {
   width: 76px;
   height: 52px;
@@ -515,13 +598,7 @@ body {
   font-size: 20px;
   letter-spacing: 0;
 }
-.e17_3788 {
-  width: 178px;
-  height: 61px;
-  position: absolute;
-  left: 139px;
-  top: 1094px;
-}
+
 .ei17_3788_40_50 {
   width: 158px;
   height: 41px;

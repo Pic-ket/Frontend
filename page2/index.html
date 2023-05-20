@@ -8,6 +8,7 @@
     />
 
     <title>PIC’KET Draw</title>
+    <script src="../lib/jquery-3.7.0.min.js"></script>  
 
     <link
       href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap"
@@ -17,14 +18,49 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
 
-  <body>
-    <div id="body">
-      <div id="out_cover">
+  <body id="body">
+    <div id="out_cover">
+      <div class="backgound">
         <div id="title_cover">
           <div class="title_area">
-            <img id="btn_logout" src="./images/btn_logout.png" />
+            <img id="btn_mypage" src="../images/mypage.png" />
           </div>
         </div>
+
+        <div id="cont_wrap">
+          <div id="out_img">
+            <img id= "cont_img" src="./images/rectangle_21.png">
+          </div>
+          <div id="ticket_info">
+            <div class="ticket">CONCERT NFT Ticket</div>
+            <div id="ticket_name">BTS Second Concert</div>
+            <div id="ticket_price"><span id="price_name" class="price">가 격</span><span id="price_int" class="price">$ 110,000</span></div>
+            <div><button id="ticket_button">PIC’K IT - PAYMENT META</button></div>
+          </div>
+          <div id="cont_info">
+            <p class="info">Concert Detail Info</p>
+            <p class="where_info sub_info">콘서트 장소</p>
+            <p class="when_info sub_info">공연 기간</p>
+            <p class="time_info sub_info">공연 시간</p>
+            <p class="old_info sub_info">관람 연령</p>
+          </div>
+          <div id="switch"><span class="switch nft">NFT Ticket</span><span class="switch detail">Detail</span></div>
+
+          <div id="nft_ticket">
+            <div id="seat">Luckey Draw Seats</div>
+            <div id="vip_wrap" class="ticket_wrap">
+              <div class="name">VIP Seat</div>
+              </div>
+            <div id="premium_wrap" class="ticket_wrap"><div class="name">Premium Seat</div></div>
+            
+            <div id="standard_wrap" class="ticket_wrap"><div class="name">Standard Seat</div></div>
+          </div>
+
+          <div id="nft_detail"></div>
+
+        </div>
+        <hr/>
+
 
         <div class="footer">
           <p>대표정보어라어랑라ㅓㅏ어라ㅓㄴ라너</p>
@@ -43,74 +79,9 @@
       </div>
     </div>
 
-    <div class="e17_1414">
-      <div class="e17_1415">
-        <div class="e17_1416">
-          <div class="e17_1417">
-            <span class="ei17_1417_72_3206">About Us</span>
-          </div>
-          <div class="e17_1418">
-            <span class="ei17_1418_72_3206">Contact</span>
-          </div>
-        </div>
-      </div>
 
-      <div class="e17_3099"></div>
-      <div class="e17_3100">
-        <div class="ei17_3100_40_50">
-          <div class="ei17_3100_36_50">
-            <span class="ei17_3100_35_26">CONCERT NFT Ticket</span>
-          </div>
-        </div>
-      </div>
-      <div class="e17_3112">
-        <div class="ei17_3112_40_50">
-          <div class="ei17_3112_36_50">
-            <span class="ei17_3112_35_26">가격</span>
-          </div>
-        </div>
-      </div>
-      <div class="e17_3118">
-        <div class="ei17_3118_40_50">
-          <div class="ei17_3118_36_50">
-            <span class="ei17_3118_35_26">$110,000</span>
-          </div>
-        </div>
-      </div>
-      <div class="e17_3106">
-        <div class="ei17_3106_40_50">
-          <div class="ei17_3106_36_50">
-            <span class="ei17_3106_35_26">BTS Second Concert </span>
-          </div>
-        </div>
-      </div>
-      <div class="e17_3152">
-        <div class="e17_3140">
-          <div class="ei17_3140_40_50">
-            <div class="ei17_3140_36_50">
-              <span class="ei17_3140_35_26">Concert Detail Info</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="e17_3154">
-        <div class="e17_3155">
-          <span class="e17_3156"
-            >장소 공연기간 2023.06.10 ~2023.06.11 공연시간 120분 관람연령 만
-            7세이상</span
-          >
-        </div>
-      </div>
-      <div class="e17_3124">
-        <span class="ei17_3124_1_561">PIC’K IT - PAYMENT META</span>
-      </div>
-      <div class="e17_3788">
-        <div class="ei17_3788_40_50">
-          <div class="ei17_3788_36_50">
-            <span class="ei17_3788_35_26">NTF Ticket</span>
-          </div>
-        </div>
-      </div>
+
+     
       <div class="e36_663">
         <div class="ei36_663_40_50">
           <div class="ei36_663_36_50">
@@ -126,12 +97,7 @@
         </div>
       </div>
       <div class="e36_698"></div>
-      <div class="e36_690">
-        <div class="ei36_690_40_50">
-          <div class="ei36_690_36_50">
-            <span class="ei36_690_35_26">Lucky Draw Seats</span>
-          </div>
-        </div>
+
       </div>
       <div class="e36_669">
         <div class="ei36_669_40_50">
@@ -147,13 +113,7 @@
           </div>
         </div>
       </div>
-      <div class="e17_3805">
-        <div class="ei17_3805_40_50">
-          <div class="ei17_3805_36_50">
-            <span class="ei17_3805_35_26">Detail</span>
-          </div>
-        </div>
-      </div>
+      
       <div class="e17_3790"></div>
       <div class="e17_3791"></div>
       <div class="e36_516">
