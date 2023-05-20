@@ -73,10 +73,10 @@ function getMetaMaskAddress() {
     return Promise.reject("메타마스크를 설치해주세요.");
   }
 }
+
 getMetaMaskAddress().then(function (address) {
   userAddress = address;
   $("#account_address").text(userAddress);
-
   console.log("메타마스크 주소:", address);
   getBalance();
   callGetTokenId();
