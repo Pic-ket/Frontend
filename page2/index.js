@@ -46,22 +46,23 @@ getMetaMaskAddress().then(function (address) {
 // 잔고 컴
 //결제창 오픈
 
+const mintTicket = async (contractAddress, userAddress) => {
+  const web3 = new Web3(window.ethereum);
+  const contract = new web3.eth.Contract(data, contractAddress);
+  contract.methods
+    .mintTicket()
+    .send({ from: userAddress, value: 100000000000000 })
+    .on("receipt", function (receipt) {
+      window.location.href = "../page5/index.html";
+      console.log(receipt);
+    })
+    .on("error", function (error) {
+      console.log(error);
+    });
+};
+
 // 민트 클릭
 $("#ticket_button").on("click", function () {
-  const mintTicket = async (contractAddress, userAddress) => {
-    const web3 = new Web3(window.ethereum);
-    const contract = new web3.eth.Contract(data, contractAddress);
-    contract.methods
-      .mintTicket()
-      .send({ from: userAddress, value: 100000000000000 })
-      .on("receipt", function (receipt) {
-        window.location.href = "../page5/index.html";
-        console.log(receipt);
-      })
-      .on("error", function (error) {
-        console.log(error);
-      });
-  };
   mintTicket("0xb6ACb4Bc6e19A19B6E44A4fb5Ce74D2F1a3FE2E6", userAddress);
 });
 
