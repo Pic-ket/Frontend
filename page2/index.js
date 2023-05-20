@@ -63,7 +63,7 @@ const mintTicket = async (contractAddress, userAddress) => {
 
 // 민트 클릭
 $("#ticket_button").on("click", function () {
-  mintTicket("0xb6ACb4Bc6e19A19B6E44A4fb5Ce74D2F1a3FE2E6", userAddress);
+  mintTicket("0x9688Ad40a73B3a025E8924c2c35f7024D95F6D0e", userAddress);
 });
 
 //카드 스크롤 시작

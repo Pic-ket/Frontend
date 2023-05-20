@@ -5,7 +5,7 @@ let userAddress = userAccount;
 let userBalance = "";
 let tokenId = "";
 let tokenUrl = "";
-const contractAddress = "0xb6ACb4Bc6e19A19B6E44A4fb5Ce74D2F1a3FE2E6";
+const contractAddress = "0x9688Ad40a73B3a025E8924c2c35f7024D95F6D0e";
 const web3 = new Web3(window.ethereum);
 const contract = new web3.eth.Contract(data, contractAddress);
 
