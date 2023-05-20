@@ -52,56 +52,92 @@ function getBalance() {
     document.getElementById("output").innerHTML = err;
   }
 }
+//결제창 오픈
 
+function openMetaMaskPayment() {
+  if (typeof window.ethereum !== "undefined") {
+    // 사용자에게 DApp 접근 권한 요청
+    window.ethereum
+      .enable()
+      .then(function (accounts) {
+        // 메타마스크 계정 주소
+        var fromAddress = accounts[0];
+
+        // 트랜잭션 정보
+        var transaction = {
+          from: fromAddress,
+          to: "0x790fF1c5023E703a104592983Ad35B0B39819261", // 수령인 주소를 여기에 입력하세요.
+          value: web3.utils.toWei("0.0000000001", "ether"), // 전송할 이더 양을 여기에 입력하세요.
+        };
+
+        // 메타마스크 결제 창 열기
+        window.ethereum
+          .request({
+            method: "mintTicket",
+            params: [transaction],
+          })
+          .then(function (transactionHash) {
+            console.log("트랜잭션 전송 완료:", transactionHash);
+          })
+          .catch(function (error) {
+            console.error("트랜잭션 전송 실패:", error);
+          });
+      })
+      .catch(function (error) {
+        console.error("계정 접근 권한 요청 실패:", error);
+      });
+  } else {
+    alert("메타마스크를 설치해주세요.");
+  }
+}
 // 민트 클릭
 $("#ticket_button").on("click", function (e) {
+  openMetaMaskPayment();
   //민트? 시작하는 코드 ㄱㄱ
   // useraddress <- 전역에 지정
-
-  getMetaMaskAddress().then(function (address) {
-    userAddress = address;
-    console.log("메타마스크 주소:", address);
-  });
+  // getMetaMaskAddress().then(function (address) {
+  //   userAddress = address;
+  //   console.log("메타마스크 주소:", address);
+  // });
   //
-  const mintTicket = async () => {
-    try {
-      const nonce = await web3.eth.getTransactionCount(userAddress, "latest");
-      const data = web3.eth.abi.encodeFunctionCall(
-        {
-          inputs: [],
-          name: "mintTicket",
-          outputs: [],
-          stateMutability: "payable",
-          type: "function",
-        },
-        []
-      );
-      console.log();
-      const signTx = await web3.eth.accounts.signTransaction(
-        {
-          from: userAddress,
-          to: contractAddress,
-          data: data,
-          gas: 2000000,
-          nonce: nonce,
-        },
-        privateKey
-      );
-
-      await web3.eth
-        .sendSignedTransaction(signTx.rawTransaction)
-        .on("error", (err) => {
-          results.error.push("sendSignedTransaction ERROR");
-        })
-        .then((receipt) => {
-          console.log(receipt);
-        });
-    } catch (err) {
-      console.log(err);
-    }
-    return {};
-  };
-  mintTicket();
+  // const mintTicket = async () => {
+  //   try {
+  //     const nonce = await web3.eth.getTransactionCount(userAddress, "latest");
+  //     const data = web3.eth.abi.encodeFunctionCall(
+  //       {
+  //         inputs: [],
+  //         name: "mintTicket",
+  //         outputs: [],
+  //         stateMutability: "payable",
+  //         type: "function",
+  //       },
+  //       []
+  //     );
+  //     console.log();
+  //     const signTx = await web3.eth.accounts.signTransaction(
+  //       {
+  //         from: userAddress,
+  //         to: contractAddress,
+  //         data: data,
+  //         gas: 2000000,
+  //         nonce: nonce,
+  //       },
+  //       privateKey
+  //     );
+  //     await web3.eth
+  //       .sendSignedTransaction(signTx.rawTransaction)
+  //       .on("error", (err) => {
+  //         results.error.push("sendSignedTransaction ERROR");
+  //       })
+  //       .then((receipt) => {
+  //         console.log(receipt);
+  //       });
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  //   return {};
+  // };
+  // mintTicket();
 });
 
 //카드 스크롤 시작
