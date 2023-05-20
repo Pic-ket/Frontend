@@ -10,7 +10,7 @@ $(".v66_428").on("click", function (e) {
   location.href = "../index.html";
 });
 ///////
-let userAddress = userAccount;
+let userAddress = "";
 let userBalance = "";
 let tokenId = "";
 let tokenUrl = "";
@@ -21,20 +21,20 @@ const web3 = new Web3(window.ethereum);
 
 const contract = new web3.eth.Contract(data, contractAddress);
 
-// if (typeof window.ethereum !== "undefined") {
-//   window.ethereum
-//     .enable()
-//     .then(function (accounts) {
-//       alert(accounts[0]);
-//       userAddress = accounts[0];
-//     })
-//     .catch(function (error) {
-//       console.error(error);
-//     });
-// } else {
-//   alert("메타마스크를 설치해주세요.");
-//   location.reload();
-// }
+if (typeof window.ethereum !== "undefined") {
+  window.ethereum
+    .enable()
+    .then(function (accounts) {
+      alert(accounts[0]);
+      userAddress = accounts[0];
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+} else {
+  alert("메타마스크를 설치해주세요.");
+  location.reload();
+}
 
 window.addEventListener("load", function () {
   if (typeof web3 !== "undefined") {
