@@ -61,6 +61,7 @@ function getBalance() {
   }
 }
 
+getBalance();
 //카드 이미지 입력
 function changeImg() {
   $("#cont_img").attr("src", tokenUrl);

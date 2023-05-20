@@ -53,7 +53,7 @@ $("#ticket_button").on("click", function () {
     const contract = new web3.eth.Contract(data, contractAddress);
     contract.methods
       .mintTicket()
-      .send({ from: userAddress, value: 1000000000000000 })
+      .send({ from: userAddress, value: 100000000000000 })
       .on("receipt", function (receipt) {
         window.location.href = "../page5/index.html";
         console.log(receipt);
