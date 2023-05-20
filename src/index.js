@@ -1,12 +1,43 @@
+// import { getUrl } from "../utils/apiconnection.js";
+
 $(".v66_428").on("click", function (e) {
   location.reload();
 });
-
 $(".item").on("click", function (e) {
   location.href = "./page2/index.html";
 });
 
 const account_text = "";
+
+const getUrl = (addOn, queryString) => {
+  const urlBase = "http://3.139.103.120:8080/" + addOn;
+  const payload = { userAddress: queryString };
+  const urlAddon = "?" + new URLSearchParams(payload).toString();
+  const url = urlBase + (queryString ? urlAddon : "");
+
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      const mapData = data.map((x) => {
+        return {
+          isChanged: x.isChanged,
+          mintTime: x.mintTime,
+          tokenId: x.tokenId,
+          tokenImage: x.tokenImage,
+          tokenUrl: x.tokenUrl,
+          updateTime: x.updateTime,
+          userAddress: x.userAddress,
+        };
+      });
+      console.log("mapData:", mapData);
+    })
+    .catch((error) => console.log("error:", error));
+};
+
+//참고하세요!
+getUrl("status");
+//뒤 인자가 useraddress값
+getUrl("tokenInfo", "test");
 
 function openMetaMaskPopup() {
   if (typeof window.ethereum !== "undefined") {
@@ -26,7 +57,7 @@ function openMetaMaskPopup() {
   }
 }
 //클릭이벤트 붙이기
-$("#btn_mypage").on("click", function (e) {
+$("#btn_mypage").on("click", function async(e) {
   if (typeof window.ethereum !== "undefined") {
     window.ethereum
       .enable()
