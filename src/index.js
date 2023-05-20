@@ -2,6 +2,10 @@ $(".v66_428").on("click", function (e) {
   location.reload();
 });
 
+$(".item").on("click", function (e) {
+  location.href = "./page2/index.html";
+});
+
 const account_text = "";
 
 function openMetaMaskPopup() {
