@@ -1,4 +1,5 @@
 // import { getUrl } from "../utils/apiconnection.js";
+import metamask from "../utils/metamask.js";
 
 $(".v66_428").on("click", function (e) {
   location.reload();
@@ -33,9 +34,9 @@ const getUrl = (addOn, queryString) => {
 };
 
 //참고하세요!
-//getUrl("status");
+getUrl("status");
 //뒤 인자가 useraddress값
-//getUrl("tokenInfo", "test");
+getUrl("tokenInfo", "test");
 
 //클릭이벤트 붙이기
 $("#btn_mypage").on("click", function async(e) {

@@ -1,3 +1,5 @@
+import metamask from "../utils/metamask.js";
+
 //클릭이벤트 붙이기
 $("#btn_logout").on("click", function (e) {
   location.reload();
