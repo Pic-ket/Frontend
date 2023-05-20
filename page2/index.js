@@ -13,6 +13,9 @@ $(".switch.detail").on("click", function (e) {
 });
 $(".switch.nft").trigger("click");
 //민트 위한 변수 선언
+var userAddress = "";
+var contractAddress = "";
+//민트를 위한 함수 선언
 function getMetaMaskAddress() {
   if (typeof window.ethereum !== "undefined") {
     // 사용자에게 DApp 접근 권한 요청
@@ -34,15 +37,22 @@ function getMetaMaskAddress() {
     return Promise.reject("메타마스크를 설치해주세요.");
   }
 }
+function getBalance() {
+  var address, wei, balance;
+  address = document.getElementById("address").value;
+  try {
+    web3.eth.getBalance(address, function (error, wei) {
+      if (!error) {
+        var balance = web3.fromWei(wei, "ether");
+        document.getElementById("output").innerHTML = balance + " AVAX";
+      }
+    });
+  } catch (err) {
+    document.getElementById("output").innerHTML = err;
+  }
+}
 
-// 예시에서 함수 호출
-getMetaMaskAddress().then(function (address) {
-  console.log("메타마스크 주소:", address);
-});
-
-var userAddress = "";
-var contractAddress = "";
-
+// 민트 클릭
 $("#ticket_button").on("click", function (e) {
   //민트? 시작하는 코드 ㄱㄱ
   // useraddress <- 전역에 지정

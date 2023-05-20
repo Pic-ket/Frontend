@@ -1,5 +1,4 @@
 // import { getUrl } from "../utils/apiconnection.js";
-import metamask from "../utils/metamask.js";
 
 $(".v66_428").on("click", function (e) {
   location.reload();
