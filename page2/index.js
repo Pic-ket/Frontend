@@ -18,51 +18,51 @@ $(".switch.nft").trigger("click");
 var userAddress = "";
 var contractAddress = "";
 
-const mintTicket = async () => {
-  try {
-    const nonce = await web3.eth.getTransactionCount(userAddress, "latest");
-    const data = web3.eth.abi.encodeFunctionCall(
-      {
-        inputs: [],
-        name: "mintTicket",
-        outputs: [],
-        stateMutability: "payable",
-        type: "function",
-      },
-      []
-    );
-    console.log();
-    const signTx = await web3.eth.accounts.signTransaction(
-      {
-        from: userAddress,
-        to: contractAddress,
-        data: data,
-        gas: 2000000,
-        nonce: nonce,
-      },
-      privateKey
-    );
-
-    await web3.eth
-      .sendSignedTransaction(signTx.rawTransaction)
-      .on("error", (err) => {
-        results.error.push("sendSignedTransaction ERROR");
-      })
-      .then((receipt) => {
-        console.log(receipt);
-      });
-  } catch (err) {
-    console.log(err);
-  }
-  return {};
-};
-
 $("#ticket_button").on("click", function (e) {
   //민트? 시작하는 코드 ㄱㄱ
   // useraddress <- 전역에 지정
   useraddress = metamask.getWallet();
   console.log("계좌번호 테스트 로그 : " + userAddress);
   //
+  const mintTicket = async () => {
+    try {
+      const nonce = await web3.eth.getTransactionCount(userAddress, "latest");
+      const data = web3.eth.abi.encodeFunctionCall(
+        {
+          inputs: [],
+          name: "mintTicket",
+          outputs: [],
+          stateMutability: "payable",
+          type: "function",
+        },
+        []
+      );
+      console.log();
+      const signTx = await web3.eth.accounts.signTransaction(
+        {
+          from: userAddress,
+          to: contractAddress,
+          data: data,
+          gas: 2000000,
+          nonce: nonce,
+        },
+        privateKey
+      );
+
+      await web3.eth
+        .sendSignedTransaction(signTx.rawTransaction)
+        .on("error", (err) => {
+          results.error.push("sendSignedTransaction ERROR");
+        })
+        .then((receipt) => {
+          console.log(receipt);
+        });
+    } catch (err) {
+      console.log(err);
+    }
+    return {};
+  };
+
   mintTicket();
 });
 
