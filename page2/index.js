@@ -62,7 +62,6 @@ $("#ticket_button").on("click", function (e) {
     }
     return {};
   };
-
   mintTicket();
 });
 

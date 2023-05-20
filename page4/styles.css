@@ -143,8 +143,8 @@ body {
 #out_img {
   margin: 80 40 40 40;
   position: absolute;
-  width: 563px;
-  height: 396px;
+  width: 369px;
+  height: 681px;
   flex: 1;
   display: flex;
   background: #005d96;
