@@ -16,7 +16,6 @@ $("#btn_mypage").on("click", function async(e) {
     window.ethereum
       .enable()
       .then(function (accounts) {
-        alert(accounts[0]);
         account.userAccount = accounts[0];
         window.location.href = "./page5/index.html";
       })
@@ -34,7 +33,6 @@ $("#login").on("click", function (e) {
     window.ethereum
       .enable()
       .then(function (accounts) {
-        alert(accounts[0]);
         window.location.reload();
       })
       .catch(function (error) {
