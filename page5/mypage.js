@@ -15,39 +15,9 @@ let tokenId = "";
 let tokenUrl = "";
 
 const contractAddress = "0x9688Ad40a73B3a025E8924c2c35f7024D95F6D0e";
-
 const web3 = new Web3(window.ethereum);
-
 const contract = new web3.eth.Contract(data, contractAddress);
 
-if (typeof window.ethereum !== "undefined") {
-  window.ethereum
-    .enable()
-    .then(function (accounts) {
-      alert(accounts[0]);
-      userAddress = accounts[0];
-    })
-    .catch(function (error) {
-      console.error(error);
-    });
-} else {
-  alert("메타마스크를 설치해주세요.");
-  location.reload();
-}
-
-window.addEventListener("load", function () {
-  if (typeof web3 !== "undefined") {
-    console.log("Web3 Detected! " + web3.currentProvider.constructor.name);
-    window.web3 = new Web3(web3.currentProvider);
-  } else {
-    console.log("No Web3 Detected... using HTTP Provider");
-    window.web3 = new Web3(
-      new Web3.providers.HttpProvider(
-        "https://api.avax-test.network/ext/bc/C/rpc"
-      )
-    );
-  }
-});
 function getBalance() {
   try {
     web3.eth.getBalance(userAddress, function (error, wei) {
@@ -61,17 +31,9 @@ function getBalance() {
   }
 }
 
-getBalance();
-//카드 이미지 입력
-function changeImg() {
-  $("#cont_img").attr("src", tokenUrl);
-}
-changeImg();
 const callGetTokenId = async () => {
   try {
-    tokenId = await contract.methods.getTokenId(userAddress).call();
-    console.log(tokenId);
-    return tokenId;
+    return await contract.methods.getTokenId(userAddress).call();
   } catch (err) {
     console.log(err);
   }
@@ -91,11 +53,55 @@ const callTokenUri = async () => {
   }
 };
 
-callGetTokenId();
-callTokenUri();
+function getMetaMaskAddress() {
+  if (typeof window.ethereum !== "undefined") {
+    // 사용자에게 DApp 접근 권한 요청
+    return window.ethereum
+      .enable()
+      .then(function () {
+        // 메타마스크 계정 주소 가져오기
+        return window.ethereum
+          .request({ method: "eth_requestAccounts" })
+          .then(function (accounts) {
+            // 첫 번째 계정 주소 반환
+            return accounts[0];
+          });
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  } else {
+    return Promise.reject("메타마스크를 설치해주세요.");
+  }
+}
+getMetaMaskAddress().then(function (address) {
+  userAddress = address;
+  console.log("메타마스크 주소:", address);
+  getBalance();
+  callGetTokenId();
+  callTokenUri();
+});
 
-$("#account_address").text(userAddress);
-$("#balance_int").text(userBalance);
+window.addEventListener("load", function () {
+  if (typeof web3 !== "undefined") {
+  } else {
+    console.log("No Web3 Detected... using HTTP Provider");
+    window.web3 = new Web3(
+      new Web3.providers.HttpProvider(
+        "https://api.avax-test.network/ext/bc/C/rpc"
+      )
+    );
+  }
+});
+
+// //카드 이미지 입력
+// function changeImg() {
+//   $("#cont_img").attr("src", tokenUrl);
+// }
+// changeImg();
+
+// $("#account_address").text(userAddress);
+// $("#balance_int").text(userBalance);
 
 //카드 스크롤 시작
 const list = document.querySelector(".list");
@@ -169,6 +175,8 @@ const bindEvents = () => {
   list.addEventListener("mousedown", onScrollStart);
   list.addEventListener("touchstart", onScrollStart);
   list.addEventListener("click", onClick);
+  $("#account_address").text(userAddress);
+  $("#balance_int").text(userBalance);
 };
 bindEvents();
 
