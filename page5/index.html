@@ -1,25 +1,105 @@
 <html lang="en">
-          <head>
-            <meta charset="utf-8">
-          
-            <title>Html Generated</title>
-            <meta name="description" content="Figma htmlGenerator">
-            <meta name="author" content="htmlGenerator">
-            <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
 
-            <link rel="stylesheet" href="styles.css">
-            
-            <style>
-              /*
+<head>
+  <meta charset="utf-8">
+  <script src="../lib/jquery-3.7.0.min.js"></script>
+  <title>PIC’KET MY page</title>
+  <meta name="description" content="Figma htmlGenerator">
+  <meta name="author" content="htmlGenerator">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /*
                 Figma Background for illustrative/preview purposes only.
                 You can remove this style tag with no consequence
               */
-              body {background: #E5E5E5; }
-            </style>
-          
-          </head>
-          
-          <body>
-            <div class=e107_422><div class=e107_423><div  class="e107_424"></div><div  class="e107_425"></div><div  class="e107_426"></div><div  class="e107_427"></div><div  class="e107_428"></div><div  class="e107_429"></div></div><div class=e107_430><div class=e107_431><div class=e107_432><span  class="ei107_432_72_3206">About Us</span></div><div class=e107_433><span  class="ei107_433_72_3206">Contact</span></div></div></div><div class=e107_434><div  class="ei107_434_44_298"></div><div class=ei107_434_44_300><div class=ei107_434_44_300_40_50><div class=ei107_434_44_300_36_50><span  class="ei107_434_44_300_35_26">Log Out</span></div></div></div></div><div class=e107_435><div class=ei107_435_40_50><div class=ei107_435_36_50><span  class="ei107_435_35_26">지갑 정보</span></div></div></div><div  class="e107_436"></div><div class=e107_437><div class=ei107_437_40_50><div class=ei107_437_36_50><span  class="ei107_437_35_26">My NFT Ticket Collection</span></div></div></div><div class=e107_438><div class=ei107_438_40_50><div class=ei107_438_36_50><span  class="ei107_438_35_26">어쩌고 저쩌고</span></div></div></div><div class=e107_439><div class=ei107_439_40_50><div class=ei107_439_36_50><span  class="ei107_439_35_26">039.4032.</span></div></div></div><div class=e107_440><div  class="e107_443"></div></div><div class=e107_444><div  class="e107_447"></div></div><div class=e107_448><div  class="e107_451"></div></div><div  class="e107_452"></div><div class=e107_453><div  class="e107_454"></div><div class=e107_457><span  class="e107_458">The Batman</span><span  class="e107_459">Action</span></div></div><div  class="e107_460"></div><div class=e107_461><span  class="e107_462">The Batman</span><span  class="e107_463">Action</span></div><div class=e107_464><span  class="e107_465">The Batman</span><span  class="e107_466">Action</span></div><div class=e107_467><span  class="e107_468">The Batman</span><span  class="e107_469">Action</span></div><div class=e107_470><div class=e107_471><div  class="e107_472"></div><div  class="e107_473"></div></div></div><div class=e107_474><span  class="e107_475">PIC’KET</span><div  class="e107_476"></div></div></div>
-          </body>
-          </html>
+    body {
+      background: #E5E5E5;
+    }
+  </style>
+
+</head>
+
+<body id="body">
+  <div id="out_cover">
+    <div class="backgound">
+      <div id="title_cover">
+        <div class="title_area"><img id="btn_logout" src="./images/btn_logout.png"></div>
+      </div>
+      <div id="profile_cover">
+        <img id="img_profile" src="./images/fff.jpg">
+      </div>
+
+
+
+      <div class=e107_423>
+        <div class="e107_424"></div>
+        <div class="e107_425"></div>
+        <div class="e107_426"></div>
+        <div class="e107_427"></div>
+        <div class="e107_428"></div>
+        <div class="e107_429"></div>
+      </div>
+      <div class=e107_430>
+        <div class=e107_431>
+          <div class=e107_432><span class="ei107_432_72_3206">About Us</span></div>
+          <div class=e107_433><span class="ei107_433_72_3206">Contact</span></div>
+        </div>
+      </div>
+      <div class=e107_434>
+        <div class=ei107_434_44_300>
+          <div class=ei107_434_44_300_40_50>
+            <div class=ei107_434_44_300_36_50><span class="ei107_434_44_300_35_26">Log Out</span></div>
+          </div>
+        </div>
+      </div>
+      <div class=e107_435>
+        <div class=ei107_435_40_50>
+          <div class=ei107_435_36_50><span class="ei107_435_35_26">지갑 정보</span></div>
+        </div>
+      </div>
+      <div class=e107_437>
+        <div class=ei107_437_40_50>
+          <div class=ei107_437_36_50><span class="ei107_437_35_26">My NFT Ticket Collection</span></div>
+        </div>
+      </div>
+      <div class=e107_438>
+        <div class=ei107_438_40_50>
+          <div class=ei107_438_36_50><span class="ei107_438_35_26">어쩌고 저쩌고</span></div>
+        </div>
+      </div>
+      <div class=e107_439>
+        <div class=ei107_439_40_50>
+          <div class=ei107_439_36_50><span class="ei107_439_35_26">039.4032.</span></div>
+        </div>
+      </div>
+      <div class=e107_440>
+        <div class="e107_443"></div>
+      </div>
+      <div class=e107_444>
+        <div class="e107_447"></div>
+      </div>
+      <div class=e107_448>
+        <div class="e107_451"></div>
+      </div>
+      <div class="e107_452"></div>
+      <div class=e107_453>
+        <div class="e107_454"></div>
+        <div class=e107_457><span class="e107_458">The Batman</span><span class="e107_459">Action</span></div>
+      </div>
+      <div class="e107_460"></div>
+      <div class=e107_461><span class="e107_462">The Batman</span><span class="e107_463">Action</span></div>
+      <div class=e107_464><span class="e107_465">The Batman</span><span class="e107_466">Action</span></div>
+      <div class=e107_467><span class="e107_468">The Batman</span><span class="e107_469">Action</span></div>
+
+      <div class=e107_474><span class="e107_475">PIC’KET</span>
+        <div class="e107_476"></div>
+      </div>
+    </div>
+  </div>
+  <script src="./mypage.js"></script>
+</body>
+
+</html>

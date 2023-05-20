@@ -1,8 +1,15 @@
 const w = $(window).width();
 
 $("#outcover").width(w);
-
-
+//클릭이벤트 붙이기
+$("#btn_mypage").on("click", function(e) {
+    //그전에, 메타 마슼?
+    
+    location.href = "./page5/index.html";
+});
+$(".v66_428").on("click", function(e) {
+    location.reload();
+});
 function initiate() {
 
 }
