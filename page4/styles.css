@@ -134,7 +134,6 @@ body {
   color: gray;
 }
 #cont_img {
-  border: solid 10px mediumspringgreen;
   display: flex;
   flex: 1;
   overflow: auto;
@@ -148,7 +147,7 @@ body {
   height: 681px;
   flex: 1;
   display: flex;
-  background: yellowgreen;
+  background: mediumspringgreen;
   box-shadow: 0px 0px 20px 10px yellowgreen;
   border-radius: 15px;
 }
