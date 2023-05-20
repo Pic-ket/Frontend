@@ -62,7 +62,7 @@ $("#ticket_button").on("click", function () {
         console.log(error);
       });
   };
-  mintTicket("0x0E41aeeE050b1e830aBA17BDd2e09Ed512CDDE4E", userAddress);
+  mintTicket("0xb6ACb4Bc6e19A19B6E44A4fb5Ce74D2F1a3FE2E6", userAddress);
 });
 
 //카드 스크롤 시작
