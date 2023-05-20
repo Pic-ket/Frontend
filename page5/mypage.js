@@ -59,6 +59,8 @@ function getBalance() {
 getMetaMaskAddress().then(function (address) {
   userAddress = address;
   getBalance();
+  callGetTokenId();
+  callTokenUri();
 });
 
 $("#account_address").text(userAddress);
