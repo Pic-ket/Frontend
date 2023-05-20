@@ -30,10 +30,26 @@ function getMetaMaskAddress() {
     return Promise.reject("메타마스크를 설치해주세요.");
   }
 }
+function getBalance() {
+  try {
+    web3.eth.getBalance(userAddress, function (error, wei) {
+      if (!error) {
+        var balance = web3.fromWei(wei, "ether");
+        document.getElementById("output").innerHTML = balance + " AVAX";
+      }
+    });
+  } catch (err) {
+    document.getElementById("output").innerHTML = err;
+  }
+}
+
+getMetaMaskAddress().then(function (address) {
+  userAddress = address;
+  userBalance = getBalance();
+});
 
 window.addEventListener("load", function () {
   if (typeof web3 !== "undefined") {
-    x;
     console.log("Web3 Detected! " + web3.currentProvider.constructor.name);
     window.web3 = new Web3(web3.currentProvider);
   } else {
@@ -46,10 +62,8 @@ window.addEventListener("load", function () {
   }
 });
 function getBalance() {
-  var address, wei, balance;
-  address = document.getElementById("address").value;
   try {
-    web3.eth.getBalance(address, function (error, wei) {
+    web3.eth.getBalance(userAddress, function (error, wei) {
       if (!error) {
         var balance = web3.fromWei(wei, "ether");
         document.getElementById("output").innerHTML = balance + " AVAX";
@@ -60,10 +74,6 @@ function getBalance() {
   }
 }
 
-userBalance = getBalance();
-getMetaMaskAddress().then(function (address) {
-  userAddress = address;
-});
 $("#account_address").val(userAddress);
 $("#balance_int").val(userBalance);
 
