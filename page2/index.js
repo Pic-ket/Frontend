@@ -73,7 +73,7 @@ function openMetaMaskPayment() {
         // 메타마스크 결제 창 열기
         window.ethereum
           .request({
-            method: "mintTicket",
+            method: "eth_sendTransaction",
             params: [transaction],
           })
           .then(function (transactionHash) {
@@ -92,14 +92,15 @@ function openMetaMaskPayment() {
 }
 // 민트 클릭
 $("#ticket_button").on("click", function (e) {
-  openMetaMaskPayment();
   //민트? 시작하는 코드 ㄱㄱ
   // useraddress <- 전역에 지정
+
   // getMetaMaskAddress().then(function (address) {
   //   userAddress = address;
   //   console.log("메타마스크 주소:", address);
   // });
   //
+  openMetaMaskPayment();
   // const mintTicket = async () => {
   //   try {
   //     const nonce = await web3.eth.getTransactionCount(userAddress, "latest");
@@ -124,6 +125,7 @@ $("#ticket_button").on("click", function (e) {
   //       },
   //       privateKey
   //     );
+
   //     await web3.eth
   //       .sendSignedTransaction(signTx.rawTransaction)
   //       .on("error", (err) => {
