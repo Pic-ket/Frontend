@@ -1,3 +1,5 @@
+import metamask from "../utils/metamask";
+
 //내용 전환
 $(".switch.nft").on("click", function (e) {
   $(".switch.detail").addClass("gray");
@@ -58,6 +60,8 @@ const mintTicket = async () => {
 $("#ticket_button").on("click", function (e) {
   //민트? 시작하는 코드 ㄱㄱ
   // useraddress <- 전역에 지정
+  useraddress = metamask.getWallet();
+  console.log("계좌번호 테스트 로그 : " + userAddress);
   //
   mintTicket();
 });
