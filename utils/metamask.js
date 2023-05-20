@@ -1,4 +1,4 @@
-import { ethers } from "ethers/dist/ethers.js"; // 현 서비스에서 ethers 는 잔액 해시값을 수치로 변환할 때만 사용
+import { ethers } from "../src/node_modules/ethers/dist/ethers.js"; // 현 서비스에서 ethers 는 잔액 해시값을 수치로 변환할 때만 사용
 
 const metamask = {
   isEnabled: !!window.ethereum, // 메타마스크 확장프로그램을 사용할 수 있는 상태인지 확인
