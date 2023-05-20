@@ -57,7 +57,23 @@ $("#btn_mypage").on("click", function async(e) {
     location.reload();
   }
 });
-
+$("#login").on("click", function (e) {
+  if (typeof window.ethereum !== "undefined") {
+    window.ethereum
+      .enable()
+      .then(function (accounts) {
+        alert(accounts[0]);
+        window.location.reload();
+      })
+      .catch(function (error) {
+        console.error(error);
+        location.reload();
+      });
+  } else {
+    alert("메타마스크를 설치해주세요.");
+    location.reload();
+  }
+});
 //카드 스크롤 시작
 const list = document.querySelector(".list");
 const listScrollWidth = list.scrollWidth;

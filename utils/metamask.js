@@ -1,4 +1,3 @@
-import { log } from "console";
 import { ethers } from "../src/node_modules/ethers/dist/ethers.js"; // 현 서비스에서 ethers 는 잔액 해시값을 수치로 변환할 때만 사용
 
 const metamask = {
@@ -7,16 +6,11 @@ const metamask = {
     const ethereum = window.ethereum;
 
     try {
-      console.log("request");
-
       const accounts = await ethereum.request({
         method: "eth_requestAccounts",
       });
-      console.log("account까지는 받나?");
       return accounts[0]; // 지갑 주소 리턴
     } catch (err) {
-      console.log("err로 진입");
-
       return err.message.includes("User rejected") ? "USER_DENIED" : false;
     }
   },
