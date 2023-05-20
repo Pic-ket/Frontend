@@ -1,5 +1,8 @@
-var userAddress = "";
-var userBalance = "";
+let userAddress = "";
+let userBalance = "";
+let tokenId = "";
+let tokenUrl = "";
+
 function getMetaMaskAddress() {
   if (typeof window.ethereum !== "undefined") {
     // 사용자에게 DApp 접근 권한 요청
@@ -47,23 +50,11 @@ function getBalance() {
   }
 }
 
-getMetaMaskAddress().then(function (address) {
-  userAddress = address;
-  getBalance();
-  callGetTokenId();
-  callTokenUri();
-});
-
-$("#account_address").text(userAddress);
-$("#balance_int").text(userBalance);
-
-let tokenId = "";
-let tokenUrl = "";
-
 const callGetTokenId = async () => {
   try {
     tokenId = await contract.methods.getTokenId(userAddress).call();
     console.log(tokenId);
+    return tokenId;
   } catch (err) {
     console.log(err);
   }
@@ -71,7 +62,11 @@ const callGetTokenId = async () => {
 
 const callTokenUri = async () => {
   try {
+    tokenId = await callGetTokenId();
     tokenUrl = await contract.methods.tokenURI(tokenId).call();
+    if (!tokenUrl) {
+      $("#cont_img").attr("src", tokenUrl);
+    }
     console.log(tokenUrl);
   } catch (err) {
     console.log(err);
@@ -79,8 +74,15 @@ const callTokenUri = async () => {
 };
 
 //카드 이미지 입력
-function changeImg(tokenUrl) {
+function changeImg() {
   $("#cont_img").attr("src", tokenUrl);
 }
 
-changeImg();
+getMetaMaskAddress().then(function (address) {
+  userAddress = address;
+  getBalance();
+  callTokenUri();
+});
+
+$("#account_address").text(userAddress);
+$("#balance_int").text(userBalance);
