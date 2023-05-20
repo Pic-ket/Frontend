@@ -1,3 +1,5 @@
+import data from "../abi/data.js";
+
 //클릭이벤트 붙이기
 $("#btn_logout").on("click", function (e) {
   location.reload();
@@ -11,6 +13,9 @@ let userAddress = "";
 let userBalance = "";
 let tokenId = "";
 let tokenUrl = "";
+
+const contractAddress = "0xb6ACb4Bc6e19A19B6E44A4fb5Ce74D2F1a3FE2E6";
+const contract = new web3.eth.Contract(data, contractAddress);
 
 function getMetaMaskAddress() {
   if (typeof window.ethereum !== "undefined") {
