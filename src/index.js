@@ -3,7 +3,7 @@
 $(".v66_428").on("click", function (e) {
   location.reload();
 });
-$(".item").on("click", function (e) {
+$(".item").on("dblClick", function (e) {
   location.href = "./page2/index.html";
 });
 
@@ -35,27 +35,10 @@ const getUrl = (addOn, queryString) => {
 };
 
 //참고하세요!
-getUrl("status");
+//getUrl("status");
 //뒤 인자가 useraddress값
-getUrl("tokenInfo", "test");
+//getUrl("tokenInfo", "test");
 
-function openMetaMaskPopup() {
-  if (typeof window.ethereum !== "undefined") {
-    window.ethereum
-      .enable()
-      .then(function (accounts) {
-        account_text = accounts[0];
-        return 1;
-      })
-      .catch(function (error) {
-        console.error(error);
-        return 0;
-      });
-  } else {
-    alert("메타마스크를 설치해주세요.");
-    return 0;
-  }
-}
 //클릭이벤트 붙이기
 $("#btn_mypage").on("click", function async(e) {
   if (typeof window.ethereum !== "undefined") {
