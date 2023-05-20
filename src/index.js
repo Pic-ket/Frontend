@@ -7,8 +7,6 @@ $(".item").on("dblclick", function (e) {
   location.href = "./page2/index.html";
 });
 
-const account_text = "";
-
 const getUrl = (addOn, queryString) => {
   const urlBase = "http://3.139.103.120:8080/" + addOn;
   const payload = { userAddress: queryString };
@@ -45,9 +43,8 @@ $("#btn_mypage").on("click", function async(e) {
     window.ethereum
       .enable()
       .then(function (accounts) {
-        account_text = accounts[0];
-        alert("accounts[0]");
-        location.href = "./page5/index.html";
+        alert(accounts[0]);
+        window.location.href = "./page5/index.html";
       })
       .catch(function (error) {
         console.error(error);
