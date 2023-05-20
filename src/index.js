@@ -1,12 +1,3 @@
-//클릭이벤트 붙이기
-$("#btn_mypage").on("click", function (e) {
-  //그전에, 메타 마슼?
-  if (checkMetaMaskAccount()) {
-    location.href = "./page5/index.html";
-  } else {
-    location.reload();
-  }
-});
 $(".v66_428").on("click", function (e) {
   location.reload();
 });
@@ -30,6 +21,15 @@ function openMetaMaskPopup() {
     return 0;
   }
 }
+//클릭이벤트 붙이기
+$("#btn_mypage").on("click", function (e) {
+  //그전에, 메타 마슼?
+  if (checkMetaMaskAccount()) {
+    location.href = "./page5/index.html";
+  } else {
+    location.reload();
+  }
+});
 
 //카드 스크롤 시작
 const list = document.querySelector(".list");
