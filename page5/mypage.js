@@ -1,6 +1,3 @@
-import metamask from "../utils/metamask.js";
-
-alert(metamask.getWallet());
 //클릭이벤트 붙이기
 $("#btn_logout").on("click", function (e) {
   location.reload();

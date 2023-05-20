@@ -1,175 +1,66 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <link
+      rel="shortcut icon"
+      href="../img/title_icon.png"
+      type="image/x-icon"
+    />
 
-    <title>Html Generated</title>
-    <meta name="description" content="Figma htmlGenerator" />
-    <meta name="author" content="htmlGenerator" />
+    <title>PIC’KET Draw</title>
+    <script src="../lib/jquery-3.7.0.min.js"></script>
+    <script src="../lib/web3.min.js"></script>
+
     <link
       href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/css?family=Rubik&display=swap"
-      rel="stylesheet"
-    />
 
-    <link rel="stylesheet" href="styles.css" />
-
-    <style>
-      /*
-                Figma Background for illustrative/preview purposes only.
-                You can remove this style tag with no consequence
-              */
-      body {
-        background: #e5e5e5;
-      }
-    </style>
+    <link rel="stylesheet" href="./styles.css" />
   </head>
 
-  <body>
-    <div class="e17_1488">
-      <div class="e17_3932">
-        <div class="e22_232"></div>
-        <div class="e22_230"></div>
-        <div class="e22_231"></div>
-        <div class="e22_229"></div>
-      </div>
-      <div class="e21_229">
-        <div class="e21_230"></div>
-        <div class="e21_245"></div>
-        <div class="e21_232"></div>
-      </div>
-      <div class="e22_241">
-        <div class="e22_242"></div>
-        <div class="e22_243"></div>
-      </div>
-      <div class="e17_1489">
-        <div class="e17_1490">
-          <div class="e17_1491">
-            <span class="ei17_1491_72_3206">About Us</span>
-          </div>
-          <div class="e17_1492">
-            <span class="ei17_1492_72_3206">Contact</span>
+  <body id="body">
+    <div id="out_cover">
+      <div class="backgound">
+        <div id="title_cover">
+          <div class="title_area">
+            <img id="btn_mypage" src="../images/mypage.png" />
           </div>
         </div>
-      </div>
-      <div class="e17_1493">
-        <div class="ei17_1493_44_298"></div>
-        <div class="ei17_1493_44_300">
-          <div class="ei17_1493_44_300_40_50">
-            <div class="ei17_1493_44_300_36_50">
-              <span class="ei17_1493_44_300_35_26">MY PAGE</span>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <img id="img_seat" src="./images/seat.png" />
+        <div id="cont_wrap">
+          <div id="out_img">
+            <img id="cont_img" src="./images/background.png" />
+          </div>
+          <div id="ticket_info"></div>
+          <div id="switch">
+            <span class="switch detail">Detail</span>
+          </div>
+        </div>
 
-      <div class="e17_3907">
-        <div class="e17_3908">
-          <div class="ei17_3908_40_50">
-            <div class="ei17_3908_36_50">
-              <span class="ei17_3908_35_26">Detail Info</span>
-            </div>
-          </div>
+        <hr />
+
+        <div id="nft_detail">
+          <div id="seat">Detail Info</div>
         </div>
-      </div>
-      <span class="e17_3909"
-        >공연 당일 유의사항 Ticket Box에서 NFT Ticket 소지 여부(MetaMask 월렛)과
-        신분증 확인 후 입장 가능합니다. 공연장 내 마스크 착용 필수이며, 체온
-        37.5°C 이상 측정 시 공연장 입장이 불가합니다. 유의사항 티켓 판매 기간 :
-        2022.05.20 ~ 2022.06.10 금융소비자는 금융소비자보호법 제19조 제1항에
-        따라 해당 상품 또는 서비스에 대하여 설명을 받을 권리가 있습니다. 자세한
-        내용 및 이용 조건은 카드 신청 전 현대카드 홈페이지 및 상품설명서, 약관
-        참고 준법감시심의필 220614-004호 (2022.06.14~2023.06.13)</span
-      ><span class="e17_3918"
-        >NFT Ticket 상세 가격 0.001 AVAX 혜택 NFT 포토카드 증정 NFT 포토카드
-        증정 실물 티셔츠 증정 아티스트 커뮤니티 접근 유의사항 티켓 구매 시
-        유의사항 NFT Ticket이 표기된 공연 일자와 Seat No. 확인하시고 원하는 관람
-        일자를 선택해 구매하시기 바랍니다. NFT Ticket은 취소, 변경, 환불이
-        어려우니, 구매에 참고하여 주시기 바랍니다. NFT Ticket은 MetaMask를
-        통해서 구매 가능합니다.</span
-      >
-      <div class="e17_3924">
-        <div class="ei17_3924_40_50">
-          <div class="ei17_3924_36_50">
-            <span class="ei17_3924_35_26">Detail</span>
-          </div>
+
+        <div class="footer">
+          <p>대표정보어라어랑라ㅓㅏ어라ㅓㄴ라너</p>
+          <p>대표정보어라어랑라ㅓㅏ어라ㅓㄴ라너</p>
+          <p>대표정보어라어랑라ㅓㅏ어라ㅓㄴ라너</p>
+          <p>대표정보어라어랑라ㅓㅏ어라ㅓㄴ라너</p>
+          <p>대표정보어라어랑라ㅓㅏ어라ㅓㄴ라너</p>
+          <p>대표정보어라어랑라ㅓㅏ어라ㅓㄴ라너</p>
+          <p>대표정보어라어랑라ㅓㅏ어라ㅓㄴ라너</p>
         </div>
-      </div>
-      <div class="e17_3925"></div>
-      <div class="e17_3926"></div>
-      <div class="e17_2961">
-        <div class="e17_2962"></div>
-        <div class="e17_2963"></div>
-        <div class="e17_2964"></div>
-        <div class="e17_2965"></div>
-        <div class="e17_2966"></div>
-      </div>
-      <div class="e17_2969">
-        <div class="e17_2970">
-          <div class="e17_2971">
-            <div class="e17_2972">
-              <span class="e17_2973">Ticket No.</span
-              ><span class="e17_2974">RS995</span>
-            </div>
-            <div class="e17_2975">
-              <span class="e17_2976">Data</span
-              ><span class="e17_2977">23/05/2023</span>
-            </div>
-          </div>
-          <div class="e17_2978">
-            <div class="e17_2979">
-              <span class="e17_2980">Incheon, South Korea</span
-              ><span class="e17_2981">BTS Concert</span
-              ><span class="e17_2982">17:00</span>
-            </div>
-          </div>
+
+        <div class="v66_427">
+          <span class="v66_428">PIC’KET</span>
+          <div class="v66_429"></div>
         </div>
-        <div class="e17_2991"></div>
-        <div class="e17_2992">
-          <div class="e17_2993">
-            <span class="e17_2994">Type</span
-            ><span class="e17_2995">VIP GOLD</span>
-          </div>
-          <div class="e17_2996">
-            <span class="e17_2997">My seat</span
-            ><span class="e17_2998">28A</span>
-          </div>
-        </div>
-        <div class="e17_2999"></div>
-        <div class="e17_3000">
-          <div class="e17_3001">
-            <div class="e17_3002">
-              <div class="e17_3003">
-                <span class="e17_3004">Entry Time </span>
-                <div class="e17_3005"><span class="e17_3006">16:15</span></div>
-              </div>
-              <div class="e17_3007">
-                <span class="e17_3008">Section</span
-                ><span class="e17_3009">2</span>
-              </div>
-              <div class="e17_3010">
-                <span class="e17_3011">Row</span
-                ><span class="e17_3012">15</span>
-              </div>
-            </div>
-            <div class="e17_3013">
-              <div class="e17_3014">
-                <div class="e17_3015"></div>
-                <div class="e17_3016"></div>
-              </div>
-            </div>
-          </div>
-          <span class="e17_3018">콘서트 방문 시 프론트에서 제시해주세요.</span>
-        </div>
-      </div>
-      <div class="e58_389">
-        <span class="e58_390">PIC’KET</span>
-        <div class="e58_391"></div>
       </div>
     </div>
+
+    <script src="./ticket.js"></script>
   </body>
 </html>

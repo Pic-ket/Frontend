@@ -216,9 +216,7 @@ body {
     rgba(204.0849968791008, 208.24999898672104, 0, 1) 100%
   );
 }
-div.image {
-  border: red solid 3px;
-}
+
 #seat {
   color: gray;
   font-weight: bold;

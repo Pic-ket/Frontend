@@ -12,6 +12,55 @@ $(".switch.detail").on("click", function (e) {
   $("#nft_detail").show();
 });
 $(".switch.nft").trigger("click");
+//민트 위한 변수 선언
+var userAddress = "";
+var contractAddress = "";
+
+const mintTicket = async () => {
+  try {
+    const nonce = await web3.eth.getTransactionCount(userAddress, "latest");
+    const data = web3.eth.abi.encodeFunctionCall(
+      {
+        inputs: [],
+        name: "mintTicket",
+        outputs: [],
+        stateMutability: "payable",
+        type: "function",
+      },
+      []
+    );
+    console.log();
+    const signTx = await web3.eth.accounts.signTransaction(
+      {
+        from: userAddress,
+        to: contractAddress,
+        data: data,
+        gas: 2000000,
+        nonce: nonce,
+      },
+      privateKey
+    );
+
+    await web3.eth
+      .sendSignedTransaction(signTx.rawTransaction)
+      .on("error", (err) => {
+        results.error.push("sendSignedTransaction ERROR");
+      })
+      .then((receipt) => {
+        console.log(receipt);
+      });
+  } catch (err) {
+    console.log(err);
+  }
+  return {};
+};
+
+$("#ticket_button").on("click", function (e) {
+  //민트? 시작하는 코드 ㄱㄱ
+  // useraddress <- 전역에 지정
+  //
+  mintTicket();
+});
 
 //카드 스크롤 시작
 const list = document.querySelector(".list");

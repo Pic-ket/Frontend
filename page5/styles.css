@@ -3,6 +3,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+.metadata {
+  font-size: 20px;
+  font-weight: bold;
+}
 p {
   color: white;
   margin-left: 10px;
