@@ -24,6 +24,7 @@ function getBalance() {
       if (!error) {
         var balance = web3.utils.fromWei(wei, "ether");
         userBalance = balance + " AVAX";
+        $("#balance_int").text(userBalance);
       }
     });
   } catch (err) {
@@ -43,10 +44,8 @@ const callTokenUri = async () => {
   try {
     tokenId = await callGetTokenId();
     tokenUrl = await contract.methods.tokenURI(tokenId).call();
+    $("#image").attr("src", tokenUrl);
 
-    if (!tokenUrl) {
-      $("#image").attr("src", tokenUrl);
-    }
     console.log(tokenUrl);
   } catch (err) {
     console.log(err);
@@ -76,6 +75,8 @@ function getMetaMaskAddress() {
 }
 getMetaMaskAddress().then(function (address) {
   userAddress = address;
+  $("#account_address").text(userAddress);
+
   console.log("메타마스크 주소:", address);
   getBalance();
   callGetTokenId();
