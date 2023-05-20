@@ -1,4 +1,4 @@
-import data from "../abi/data";
+import data from "../abi/data.js";
 
 //내용 전환
 $(".switch.nft").on("click", function (e) {
