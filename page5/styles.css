@@ -52,7 +52,13 @@ p {
   display: block;
   -webkit-user-drag: none;
 }
-
+#cont_img {
+  display: flex;
+  flex: 1;
+  overflow: auto;
+  flex-direction: column;
+  border-radius: 15px;
+}
 .image {
   margin: 5px;
   border-radius: 24px;

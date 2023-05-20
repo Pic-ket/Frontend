@@ -44,7 +44,7 @@ const callTokenUri = async () => {
   try {
     tokenId = await callGetTokenId();
     tokenUrl = await contract.methods.tokenURI(tokenId).call();
-    $(".image").attr("src", tokenUrl);
+    $("#cont_img").attr("src", tokenUrl);
 
     console.log(tokenUrl);
   } catch (err) {
