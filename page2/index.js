@@ -14,7 +14,7 @@ $(".switch.detail").on("click", function (e) {
 $(".switch.nft").trigger("click");
 //민트 위한 변수 선언
 var userAddress = "";
-var contractAddress = "";
+var contractAddress = "0x790fF1c5023E703a104592983Ad35B0B39819261";
 //민트를 위한 함수 선언
 function getMetaMaskAddress() {
   if (typeof window.ethereum !== "undefined") {
@@ -37,6 +37,7 @@ function getMetaMaskAddress() {
     return Promise.reject("메타마스크를 설치해주세요.");
   }
 }
+// 잔고 컴
 function getBalance() {
   var address, wei, balance;
   address = document.getElementById("address").value;
