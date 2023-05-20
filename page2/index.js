@@ -1,13 +1,13 @@
 import data from "../abi/data.js";
 
 //내용 전환
-$(".switch.nft").on("click", function (e) {
+$(".switch.nft").on("click", function () {
   $(".switch.detail").addClass("gray");
   $(".switch.nft").removeClass("gray");
   $("#nft_ticket").show();
   $("#nft_detail").hide();
 });
-$(".switch.detail").on("click", function (e) {
+$(".switch.detail").on("click", function () {
   $(".switch.nft").addClass("gray");
   $(".switch.detail").removeClass("gray");
   $("#nft_ticket").hide();
@@ -44,25 +44,10 @@ getMetaMaskAddress().then(function (address) {
   console.log("메타마스크 주소:", address);
 });
 // 잔고 컴
-function getBalance() {
-  var address, wei, balance;
-  address = document.getElementById("address").value;
-  try {
-    web3.eth.getBalance(address, function (error, wei) {
-      if (!error) {
-        var balance = web3.fromWei(wei, "ether");
-        document.getElementById("output").innerHTML = balance + " AVAX";
-      }
-    });
-  } catch (err) {
-    document.getElementById("output").innerHTML = err;
-  }
-}
 //결제창 오픈
 
 // 민트 클릭
-const contractAddress = "0x0E41aeeE050b1e830aBA17BDd2e09Ed512CDDE4E";
-$("#ticket_button").on("click", function (e) {
+$("#ticket_button").on("click", function () {
   const mintTicket = async (contractAddress, userAddress) => {
     const web3 = new Web3(window.ethereum);
     const contract = new web3.eth.Contract(data, contractAddress);
@@ -72,21 +57,13 @@ $("#ticket_button").on("click", function (e) {
       .mintTicket()
       .send({ from: userAddress, value: ethToWei(0.001) })
       .on("receipt", function (receipt) {
-        setIsSecondStepDone(true);
-        setIsThirdStepDone(true);
-
-        setIsMinting(true);
         console.log(receipt);
       })
-      .on("error", function (error, receipt) {
+      .on("error", function (error) {
         console.log(error);
-        setIsModalForMintOpen(false);
-        setIsFirstStepDone(null);
-        setIsSecondStepDone(null);
-        setIsThirdStepDone(null);
       });
   };
-  mintTicket();
+  mintTicket("0x0E41aeeE050b1e830aBA17BDd2e09Ed512CDDE4E", userAddress);
 });
 
 //카드 스크롤 시작
