@@ -78,11 +78,11 @@ function changeImg() {
   $("#cont_img").attr("src", tokenUrl);
 }
 
+$("#account_address").text(userAddress);
+$("#balance_int").text(userBalance);
+
 getMetaMaskAddress().then(function (address) {
   userAddress = address;
   getBalance();
   callTokenUri();
 });
-
-$("#account_address").text(userAddress);
-$("#balance_int").text(userBalance);
