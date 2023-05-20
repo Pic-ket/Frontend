@@ -51,8 +51,6 @@ $("#ticket_button").on("click", function () {
   const mintTicket = async (contractAddress, userAddress) => {
     const web3 = new Web3(window.ethereum);
     const contract = new web3.eth.Contract(data, contractAddress);
-    setIsFirstStepDone(false);
-    console.log(isFirstStepDone);
     contract.methods
       .mintTicket()
       .send({ from: userAddress, value: ethToWei(0.001) })
