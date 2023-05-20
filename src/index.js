@@ -23,10 +23,19 @@ function openMetaMaskPopup() {
 }
 //클릭이벤트 붙이기
 $("#btn_mypage").on("click", function (e) {
-  //그전에, 메타 마슼?
-  if (checkMetaMaskAccount()) {
-    location.href = "./page5/index.html";
+  if (typeof window.ethereum !== "undefined") {
+    window.ethereum
+      .enable()
+      .then(function (accounts) {
+        account_text = accounts[0];
+        location.href = "./page5/index.html";
+      })
+      .catch(function (error) {
+        console.error(error);
+        location.reload();
+      });
   } else {
+    alert("메타마스크를 설치해주세요.");
     location.reload();
   }
 });
