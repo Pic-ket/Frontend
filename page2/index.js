@@ -1,5 +1,5 @@
 import data from "../abi/data.js";
-import { account } from "../src/index.js";
+
 //내용 전환
 $(".switch.nft").on("click", function () {
   $(".switch.detail").addClass("gray");
@@ -15,18 +15,22 @@ $(".switch.detail").on("click", function () {
 });
 $(".switch.nft").trigger("click");
 //민트 위한 변수 선언
-let userAddress = account.userAccount;
+var userAddress = "";
 
 //민트를 위한 함수 선언
 function getMetaMaskAddress() {
   if (typeof window.ethereum !== "undefined") {
     // 사용자에게 DApp 접근 권한 요청
-    window.ethereum
-      .request({ method: "eth_requestAccounts" })
-      .then(function (accounts) {
-        // 첫 번째 계정 주소 반환
-        userAddress = accounts[0];
-        return accounts[0];
+    return window.ethereum
+      .enable()
+      .then(function () {
+        // 메타마스크 계정 주소 가져오기
+        return window.ethereum
+          .request({ method: "eth_requestAccounts" })
+          .then(function (accounts) {
+            // 첫 번째 계정 주소 반환
+            return accounts[0];
+          });
       })
       .catch(function (error) {
         console.error(error);
@@ -35,6 +39,10 @@ function getMetaMaskAddress() {
     return Promise.reject("메타마스크를 설치해주세요.");
   }
 }
+getMetaMaskAddress().then(function (address) {
+  userAddress = address;
+  console.log("메타마스크 주소:", address);
+});
 // 잔고 컴
 //결제창 오픈
 
