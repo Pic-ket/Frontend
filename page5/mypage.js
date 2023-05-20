@@ -59,15 +59,6 @@ function getBalance() {
   }
 }
 
-getMetaMaskAddress().then(function (address) {
-  userAddress = address;
-  getBalance();
-  callGetTokenId();
-  callTokenUri();
-});
-
-$("#account_address").text(userAddress);
-$("#balance_int").text(userBalance);
 //카드 이미지 입력
 function changeImg() {
   $("#cont_img").attr("src", tokenUrl);
@@ -99,8 +90,12 @@ const callTokenUri = async () => {
 getMetaMaskAddress().then(function (address) {
   userAddress = address;
   getBalance();
+  callGetTokenId();
   callTokenUri();
 });
+
+$("#account_address").text(userAddress);
+$("#balance_int").text(userBalance);
 
 //카드 스크롤 시작
 const list = document.querySelector(".list");
