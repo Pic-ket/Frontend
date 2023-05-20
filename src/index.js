@@ -14,7 +14,9 @@ const getUrl = (addOn, queryString) => {
   const urlAddon = "?" + new URLSearchParams(payload).toString();
   const url = urlBase + (queryString ? urlAddon : "");
 
-  fetch(url)
+  fetch(url, {
+    referrerPolicy: "unsafe_url",
+  })
     .then((response) => response.json())
     .then((data) => {
       const mapData = data.map((x) => {
