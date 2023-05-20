@@ -7,6 +7,7 @@ $(".item").on("dblclick", function (e) {
   location.href = "./page2/index.html";
 });
 
+export let userAccount = "";
 //클릭이벤트 붙이기
 $("#btn_mypage").on("click", function async(e) {
   if (typeof window.ethereum !== "undefined") {
@@ -14,6 +15,7 @@ $("#btn_mypage").on("click", function async(e) {
       .enable()
       .then(function (accounts) {
         alert(accounts[0]);
+        userAccount = accounts[0];
         window.location.href = "./page5/index.html";
       })
       .catch(function (error) {

@@ -1,26 +1,22 @@
 import data from "../abi/data.js";
-let userAddress = "";
+import { userAccount } from "../src/index.js";
+
+let userAddress = userAccount;
 let userBalance = "";
 let tokenId = "";
 let tokenUrl = "";
 const contractAddress = "0xb6ACb4Bc6e19A19B6E44A4fb5Ce74D2F1a3FE2E6";
 const web3 = new Web3(window.ethereum);
-
 const contract = new web3.eth.Contract(data, contractAddress);
 
 function getMetaMaskAddress() {
   if (typeof window.ethereum !== "undefined") {
     // 사용자에게 DApp 접근 권한 요청
-    return window.ethereum
-      .enable()
-      .then(function () {
-        // 메타마스크 계정 주소 가져오기
-        return window.ethereum
-          .request({ method: "eth_requestAccounts" })
-          .then(function (accounts) {
-            // 첫 번째 계정 주소 반환
-            return accounts[0];
-          });
+    window.ethereum
+      .request({ method: "eth_requestAccounts" })
+      .then(function (accounts) {
+        // 첫 번째 계정 주소 반환
+        userAddress = accounts[0];
       })
       .catch(function (error) {
         console.error(error);
@@ -83,11 +79,9 @@ function changeImg() {
   $("#cont_img").attr("src", tokenUrl);
 }
 
+getBalance();
+
+callTokenUri();
+
 $("#account_address").text(userAddress);
 $("#balance_int").text(userBalance);
-
-getMetaMaskAddress().then(function (address) {
-  userAddress = address;
-  getBalance();
-  callTokenUri();
-});
