@@ -1,5 +1,3 @@
-import metamask from "../utils/metamask";
-
 //내용 전환
 $(".switch.nft").on("click", function (e) {
   $(".switch.detail").addClass("gray");
@@ -15,13 +13,38 @@ $(".switch.detail").on("click", function (e) {
 });
 $(".switch.nft").trigger("click");
 //민트 위한 변수 선언
+function getMetaMaskAddress() {
+  if (typeof window.ethereum !== "undefined") {
+    // 사용자에게 DApp 접근 권한 요청
+    return window.ethereum
+      .enable()
+      .then(function () {
+        // 메타마스크 계정 주소 가져오기
+        return window.ethereum
+          .request({ method: "eth_requestAccounts" })
+          .then(function (accounts) {
+            // 첫 번째 계정 주소 반환
+            return accounts[0];
+          });
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  } else {
+    return Promise.reject("메타마스크를 설치해주세요.");
+  }
+}
+
 var userAddress = "";
 var contractAddress = "";
 
 $("#ticket_button").on("click", function (e) {
   //민트? 시작하는 코드 ㄱㄱ
   // useraddress <- 전역에 지정
-  useraddress = metamask.getWallet();
+
+  getMetaMaskAddress().then(function (address) {
+    userAddress = address;
+  });
   console.log("계좌번호 테스트 로그 : " + userAddress);
   //
   const mintTicket = async () => {
