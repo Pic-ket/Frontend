@@ -22,7 +22,7 @@ function getBalance() {
   try {
     web3.eth.getBalance(userAddress, function (error, wei) {
       if (!error) {
-        var balance = web3.fromWei(wei, "ether");
+        var balance = web3.utils.fromWei(wei, "ether");
         userBalance = balance + " AVAX";
       }
     });
