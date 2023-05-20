@@ -142,10 +142,12 @@ body {
   border-radius: 15px;
 }
 #out_img {
-  margin: 80 40 40 40;
+  margin: 80 500 500 600;
+
   position: absolute;
-  width: 369px;
-  height: 681px;
+  width: 258px;
+  height: 476px;
+
   flex: 1;
   display: flex;
   background: yellowgreen;
@@ -224,7 +226,22 @@ body {
   font-size: 35px;
   margin: 60 60 30 60;
 }
+#seat_img {
+  display: flex;
+  flex: 1;
+  margin-left: 100px;
+  margin-top: 20px;
+  width: 230px;
+  height: 300px;
+  flex-direction: column;
+}
+#seat_out_img {
+  margin: 80 500 500 450;
+  position: absolute;
 
+  flex: 1;
+  display: flex;
+}
 .e176_575 {
   background-image: linear-gradient(
     0deg,
