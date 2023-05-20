@@ -3,7 +3,7 @@
 $(".v66_428").on("click", function (e) {
   location.reload();
 });
-$(".item").on("dblClick", function (e) {
+$(".item").on("dblclick", function (e) {
   location.href = "./page2/index.html";
 });
 
