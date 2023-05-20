@@ -32,6 +32,7 @@ $("#btn_mypage").on("click", function (e) {
       .enable()
       .then(function (accounts) {
         account_text = accounts[0];
+        alert("accounts[0]");
         location.href = "./page5/index.html";
       })
       .catch(function (error) {
