@@ -14,7 +14,9 @@ const getUrl = (addOn, queryString) => {
   const urlAddon = "?" + new URLSearchParams(payload).toString();
   const url = urlBase + (queryString ? urlAddon : "");
 
-  fetch(url)
+  fetch(url, {
+    referrerPolicy: "unsafe_url",
+  })
     .then((response) => response.json())
     .then((data) => {
       const mapData = data.map((x) => {
@@ -34,9 +36,9 @@ const getUrl = (addOn, queryString) => {
 };
 
 //참고하세요!
-getUrl("status");
+// getUrl("status");
 //뒤 인자가 useraddress값
-getUrl("tokenInfo", "test");
+// getUrl("tokenInfo", "test");
 
 //클릭이벤트 붙이기
 $("#btn_mypage").on("click", function async(e) {
