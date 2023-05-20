@@ -91,6 +91,8 @@ const callTokenUri = async () => {
 function changeImg(tokenUrl) {
   $(".image").attr("src", tokenUrl);
 }
+
+changeImg();
 //카드 스크롤 시작
 const list = document.querySelector(".list");
 const listScrollWidth = list.scrollWidth;
