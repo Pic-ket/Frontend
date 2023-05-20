@@ -55,6 +55,7 @@ $("#ticket_button").on("click", function () {
       .mintTicket()
       .send({ from: userAddress, value: 1000000000000000 })
       .on("receipt", function (receipt) {
+        window.location.href = "../page5/index.html";
         console.log(receipt);
       })
       .on("error", function (error) {
@@ -62,7 +63,6 @@ $("#ticket_button").on("click", function () {
       });
   };
   mintTicket("0x0E41aeeE050b1e830aBA17BDd2e09Ed512CDDE4E", userAddress);
-  window.location.href = "../page5/index.html";
 });
 
 //카드 스크롤 시작

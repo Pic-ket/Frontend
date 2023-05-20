@@ -74,8 +74,8 @@ function getBalance() {
   }
 }
 
-$("#account_address").val(userAddress);
-$("#balance_int").val(userBalance);
+$("#account_address").text(userAddress);
+$("#balance_int").text(userBalance);
 
 let tokenId = "";
 let tokenUrl = "";
