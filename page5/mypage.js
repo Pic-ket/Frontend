@@ -6,7 +6,92 @@ $("#btn_logout").on("click", function (e) {
 $(".v66_428").on("click", function (e) {
   location.href = "../index.html";
 });
+///////
+var userAddress = "";
+var userBalance = "";
+function getMetaMaskAddress() {
+  if (typeof window.ethereum !== "undefined") {
+    // 사용자에게 DApp 접근 권한 요청
+    return window.ethereum
+      .enable()
+      .then(function () {
+        // 메타마스크 계정 주소 가져오기
+        return window.ethereum
+          .request({ method: "eth_requestAccounts" })
+          .then(function (accounts) {
+            // 첫 번째 계정 주소 반환
+            return accounts[0];
+          });
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  } else {
+    return Promise.reject("메타마스크를 설치해주세요.");
+  }
+}
 
+window.addEventListener("load", function () {
+  if (typeof web3 !== "undefined") {
+    x;
+    console.log("Web3 Detected! " + web3.currentProvider.constructor.name);
+    window.web3 = new Web3(web3.currentProvider);
+  } else {
+    console.log("No Web3 Detected... using HTTP Provider");
+    window.web3 = new Web3(
+      new Web3.providers.HttpProvider(
+        "https://api.avax-test.network/ext/bc/C/rpc"
+      )
+    );
+  }
+});
+function getBalance() {
+  var address, wei, balance;
+  address = document.getElementById("address").value;
+  try {
+    web3.eth.getBalance(address, function (error, wei) {
+      if (!error) {
+        var balance = web3.fromWei(wei, "ether");
+        document.getElementById("output").innerHTML = balance + " AVAX";
+      }
+    });
+  } catch (err) {
+    document.getElementById("output").innerHTML = err;
+  }
+}
+
+userBalance = getBalance();
+getMetaMaskAddress().then(function (address) {
+  userAddress = address;
+});
+$("#account_address").val(userAddress);
+$("#balance_int").val(userBalance);
+
+let tokenId = "";
+let tokenUrl = "";
+
+const callGetTokenId = async () => {
+  try {
+    tokenId = await contract.methods.getTokenId(userAddress).call();
+    console.log(tokenId);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const callTokenUri = async () => {
+  try {
+    tokenUrl = await contract.methods.tokenURI(tokenId).call();
+    console.log(tokenUrl);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+//카드 이미지 입력
+function changeImg(tokenUrl) {
+  $(".image").attr("src", tokenUrl);
+}
 //카드 스크롤 시작
 const list = document.querySelector(".list");
 const listScrollWidth = list.scrollWidth;
