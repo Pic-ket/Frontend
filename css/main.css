@@ -8,13 +8,24 @@
 }
 p {
   color: white;
+  margin-left: 10px;
 }
 body {
   width: 100%;
   padding: 4rem 0;
   font-size: 14px;
 }
-
+.concerts_title {
+  font-size: 20px;
+  font: bold;
+}
+.concerts_date {
+  font-size: 16px;
+  font: bold;
+}
+.concerts_explain {
+  font-size: 16px;
+}
 .list {
   margin-top:20px;
   padding: 1rem 0;
